@@ -1,0 +1,68 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LvImageToolkit"
+        xmlns:LvImageView="clr-namespace:LvWpfLib.LvImageView;assembly=LvWpfLib" x:Class="LvImageToolkit.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="640" Width="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="383*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Background="#FF0097FF" Grid.ColumnSpan="2">
+            <MenuItem x:Name="miFile"  Header="文件" Foreground="White" Height="24">
+                <MenuItem x:Name="miOpen" Header="打开" HorizontalAlignment="Left" Foreground="Black" Click="mi_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar Grid.Row="2" Background="#FF0097FF" Grid.ColumnSpan="2" Foreground="White">
+            <StatusBarItem x:Name="siReso" Content="-" Height="20" VerticalAlignment="Top"/>
+            <StatusBarItem Content="位置:" Height="20" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <StatusBarItem x:Name="siLocation" Content="-" Height="20" VerticalAlignment="Top" Margin="0,0,0,0"/>
+            <StatusBarItem  Content="值:" Height="20" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <StatusBarItem x:Name="siLocalValue" Content="-" Height="20" VerticalAlignment="Top"/>
+        </StatusBar>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="169*"/>
+                <RowDefinition Height="114*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="713*"/>
+                <ColumnDefinition Width="303*"/>
+            </Grid.ColumnDefinitions>
+            <LvImageView:ImageView x:Name="ivMain" Grid.ColumnSpan="1" Grid.RowSpan="1"/>
+            <DataGrid Grid.Row="1"/>
+            <StackPanel Grid.Column="1" Grid.RowSpan="2" >
+                <GroupBox Header="图像" Height="108" Margin="4">
+                    <Grid/>
+                </GroupBox>
+                <GroupBox Header="对比度" Height="226" Margin="4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="87*"/>
+                            <ColumnDefinition Width="196*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="btnContrastRun" Content="Run" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="102" Click="btnContrastRun_Click" Grid.Column="1" Height="37"/>
+                        <Label Content="Region:" Margin="10,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+                        <Label Content="Mean:" Margin="10,40,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+                        <Label Content="Std:" Margin="10,70,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+                        <Label Content="Contrast:" Margin="10,100,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+                        <Label x:Name="labRegion" Content="-" Margin="10,10,55,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label x:Name="labMean" Content="-" Margin="10,40,55,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label x:Name="labStd" Content="-" Margin="10,70,55,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label x:Name="labContrast" Content="-" Margin="10,100,55,0" VerticalAlignment="Top" Grid.Column="1" Height="56" BorderBrush="#FF0097FF" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>
